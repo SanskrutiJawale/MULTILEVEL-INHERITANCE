@@ -1,0 +1,112 @@
+// Aim= cpp program to demonstrate encapsulation and inheritance concept
+//MULTILEVEL INHERITANCE//
+#include<iostream>
+using namespace std;
+class hotel
+{
+	protected:
+		string hotel_name;
+		string hotel_add;
+		int star;
+	public:
+		void getdata()
+		{
+			cout<<"Enter the name of Hotel:";
+			getline(cin,hotel_name);
+			cout<<"Enter the Hotel Address:";
+			getline(cin,hotel_add);
+			cout<<"Hotel rating:";
+			cin>>star;
+		}
+		void display()
+		{
+			cout<<"The of the Hotel is:"<<hotel_name<<endl;
+			cout<<"Addres of the Hotel is:"<<hotel_add<<endl;
+			cout<<"Hotel Rating is:"<<star<<endl;
+		}
+};
+class reservation:public hotel
+{
+	protected:
+		int rev_id;
+		int in;
+		int out;
+	public:
+	    void getdata1()
+	    {
+	    	cout<<"Guest Reservation ID:";
+	    	cin>>rev_id;
+	    	cout<<"Guest Check In:";
+	    	cin>>in;
+	    	cout<<"Guest Check Out:";
+	    	cin>>out;
+	    }
+	    void display1()
+	    {
+	    	cout<<"Reservation ID:"<<rev_id<<endl;
+	    	cout<<"Check In Date:"<<in<<endl;
+	    	cout<<"Check Out Date:"<<out<<endl;
+	    }
+};
+class info:public reservation
+{
+	protected:
+		string name;
+		string add;
+		int no;
+	public:
+		void getdata2()
+		{
+		cout<<"Guest Name:";
+		cin>>name;
+		cout<<"Guest Address:";
+		cin>>add;
+		cout<<"Guest Mobile Number:";
+		cin>>no;
+		}
+		void display2()
+		{
+			cout<<"Guest Name is:"<<name<<endl;
+			cout<<"Guest Address is:"<<add<<endl;
+			cout<<"Guest Moblie Number is:"<<no<<endl;
+		}
+};
+class payment:public info
+{
+	protected:
+		int card;
+		int ex;
+		string hold;
+		int bill;
+	public:
+		void getdata3()
+		{
+			cout<<"Enter the Card Number:";
+			cin>>card;
+			cout<<"Expire Date:";
+			cin>>ex;
+			cout<<"Holder Name:";
+			cin>>name;
+			cout<<"Total Amount:";
+			cin>>bill;
+		}
+		void display3()
+		{
+			cout<<"Card Number is:"<<card<<endl;
+			cout<<"Card Expires on:"<<ex<<endl;
+			cout<<"Holder of the Card is:"<<name<<endl;
+			cout<<"Total Amount Required:"<<bill<<endl;
+		}
+};
+int main()
+{
+	payment p;
+	p.getdata();
+	p.getdata1();
+	p.getdata2();
+	p.getdata3();
+	p.display();
+	p.display1();
+	p.display2();
+	p.display3();
+}
